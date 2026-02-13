@@ -1,8 +1,8 @@
-# ifndef VEC3_H // if not defined VEC3_H という意味
-# define VEC3_H
+#ifndef VEC3_H // if not defined VEC3_H という意味
+#define VEC3_H
 
-# include <cmath>
-# include <iostream>
+#include <cmath>
+#include <iostream>
 
 using std::sqrt;
 
@@ -52,8 +52,6 @@ class vec3 {
 using point3 = vec3;   // 3D 点
 using color = vec3;    // RGB 色
 
-# endif
-
 inline std::ostream& operator<<(std::ostream &out, const vec3 &v) {
     return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
 }
@@ -97,3 +95,5 @@ inline vec3 cross(const vec3 &u, const vec3 &v) {
 inline vec3 unit_vector(const vec3 &v) {
     return v / v.length();
 }
+
+#endif
