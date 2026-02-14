@@ -34,7 +34,6 @@ Thumbs.db
 *.idb
 *.opendb
 *.VC.db
-*.vscode/
 *.code-workspace
 *.env
 .env
