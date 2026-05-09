@@ -6,16 +6,17 @@ using namespace std;
 
 
 double hit_sphere(const point3& center, double radius, const ray& r) {
-    vec3 oc = center - r.origin();
-    auto a = dot(r.direction(), r.direction());
-    auto b = 2.0 * dot(r.direction(), -oc);
-    auto c = dot(-oc, -oc) - radius*radius;
-    auto discriminant = b*b - 4*a*c;
+    vec3 oc = r.origin() - center;  // 本来は co と命名すべきな気がするが、なぜか oc と命名されている
+    auto a = r.direction().length_squared(); // a = dot(r.direction(), r.direction());
+    auto half_b = dot(r.direction(), oc);
+    // auto b = 2.0 * dot(r.direction(), oc);
+    auto c = oc.length_squared() - radius*radius;
+    auto discriminant = half_b*half_b - a*c;
 
     if (discriminant < 0) { // 交差なし
         return -1.0;
     } else { // 交差あり --> 手前の交点に対応する t を返す
-        return (-b - sqrt(discriminant))/ (2.0 * a);
+        return (-half_b - sqrt(discriminant))/ a;
     }
 }
 
