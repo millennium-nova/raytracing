@@ -20,6 +20,16 @@ inline double degrees_to_radians(double degrees) {
     return (degrees/180) * pi;
 }
 
+inline double random_double() {
+    // [0,1) の実数乱数を返す
+    return rand() / (RAND_MAX + 1.0); // < 1.0 を保証するために + 1.0 をする
+}
+
+inline double random_double(double min, double max) {
+    // [min,max) の実数乱数を返す
+    return min + (max-min)*random_double();
+}
+
 // 共通ヘッダー
 #include "ray.h"
 #include "vec3.h"

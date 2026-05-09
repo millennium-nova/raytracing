@@ -14,9 +14,9 @@ color ray_color(const ray& r, const hittable& world) {
         return 0.5 * (rec.normal + color(1,1,1));
     }
 
-    vec3 unit_direction = unit_vector(r.direction());
-    auto t = 0.5*(unit_direction.y() + 1.0);
-    return (1.0-t)*color(1.0, 1.0, 1.0) + t*color(0.5, 0.7, 1.0);
+    vec3 unit_direction = unit_vector(r.direction()); // レイの方向ベクトルを正規化
+    auto t = 0.5*(unit_direction.y() + 1.0); // y 座標を [-1,1] から [0,1] に変換
+    return (1.0-t)*color(1.0, 1.0, 1.0) + t*color(0.5, 0.7, 1.0); // 線形補間を使用して、白から青へのグラデーションを作成
 };
 
 
@@ -38,8 +38,8 @@ int main() {
     auto lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
 
     hittable_list world;
-    world.add(make_shared<sphere>(point3(0,0,-1), 0.5));
-    world.add(make_shared<sphere>(point3(0,-100.5,-1), 100));
+    world.add(make_shared<sphere>(point3(0,0,-1), 0.5)); // (0,0,-1) を中心とする半径 0.5 の球を追加
+    world.add(make_shared<sphere>(point3(0,-100.5,-1), 100)); // (0,-100.5,-1) を中心とする半径 100 の球を追加 (地面の代わり)
 
     for (int j = image_height-1; j >= 0; --j) {
         cerr << "\rScanlines remaining: " << j << ' ' << flush;
