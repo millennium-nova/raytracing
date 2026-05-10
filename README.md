@@ -26,3 +26,9 @@ vec3, ray クラスなどを定義しただけ
 <br>
 
 カメラクラスを定義
+
+アンチエイリアス<br>
+<img src="week1/day6_anti_alias.png" alt="アンチエイリアス" width="480">
+
+拡散反射球の表示<br>
+<img src="week1/day6_diffuse.png" alt="アンチエイリアス" width="480">

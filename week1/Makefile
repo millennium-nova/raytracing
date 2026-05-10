@@ -1,9 +1,9 @@
 FLAG = -Wall -O3 -std=c++14
-day4.exe: day4.cpp
+day6.exe: day6.cpp
 	g++ $(FLAG) $^ -o $@
-%.ppm: day4.exe
-	./day4.exe > $@
-all: day4.exe
+%.ppm: day6.exe
+	./day6.exe > $@
+all: day6.exe
 clean:
-	rm -f day4.exe *.ppm
+	rm -f day6.exe *.ppm
 .PHONY: all clean
