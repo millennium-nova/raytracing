@@ -41,3 +41,9 @@ vec3, ray クラスなどを定義しただけ
 
 シャドウアクネ削除<br>
 <img src="week1/day6_diffuse_gamma_acne.png" alt="シャドウアクネ削除" width="480">
+
+正しいLambert球<br>
+<img src="week1/day6_lambert.png" alt="正しいランバート球" width="480">
+
+拡散マテリアルの異なる定式化<br>
+<img src="week1/day6_hemisphere.png" alt="拡散マテリアルの異なる定式化" width="480">

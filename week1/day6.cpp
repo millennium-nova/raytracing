@@ -17,7 +17,7 @@ color ray_color(const ray& r, const hittable& world, int depth) {
     }
 
     if (world.hit(r, 0.001, infinity, rec)) {
-        auto target = rec.p + rec.normal + random_in_unit_sphere();
+        auto target = rec.p + random_in_hemisphere(rec.normal);
         return 0.5 * ray_color(ray(rec.p, target - rec.p), world, depth-1);
     }
 
