@@ -31,4 +31,13 @@ vec3, ray クラスなどを定義しただけ
 <img src="week1/day6_anti_alias.png" alt="アンチエイリアス" width="480">
 
 拡散反射球の表示<br>
-<img src="week1/day6_diffuse.png" alt="アンチエイリアス" width="480">
+<img src="week1/day6_diffuse.png" alt="拡散反射球" width="480">
+
+
+### 6日目
+
+ガンマ補正適用<br>
+<img src="week1/day6_diffuse_gamma.png" alt="ガンマ補正後" width="480">
+
+シャドウアクネ削除<br>
+<img src="week1/day6_diffuse_gamma_acne.png" alt="シャドウアクネ削除" width="480">
