@@ -47,3 +47,6 @@ vec3, ray クラスなどを定義しただけ
 
 拡散マテリアルの異なる定式化<br>
 <img src="week1/day6_hemisphere.png" alt="拡散マテリアルの異なる定式化" width="480">
+
+### 7日目
+
