@@ -50,3 +50,5 @@ vec3, ray クラスなどを定義しただけ
 
 ### 7日目
 
+完全鏡面反射の金属マテリアル
+<img src="week1/day7_perfect_specular_metal.png" alt="完全鏡面反射の金属マテリアル" width="480">

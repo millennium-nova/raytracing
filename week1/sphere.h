@@ -52,4 +52,5 @@ bool sphere::hit(
     return false;
 }
 
+
 #endif

@@ -130,4 +130,8 @@ vec3 random_in_hemisphere(const vec3& normal) {
 }
 
 
+vec3 reflect(const vec3& v, const vec3& n) {
+    return v + 2*(-dot(v, n))*n; // ここでは b ベクトルの大きさを計算したいが、v と n のなす角は鈍角であり、余弦 dot(v, n) は負になるので、-dot(v, n) として正の値にする
+}
+
 #endif

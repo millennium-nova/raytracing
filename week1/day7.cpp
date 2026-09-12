@@ -4,6 +4,7 @@
 #include "sphere.h"
 #include "color.h"
 #include "camera.h"
+#include "material.h"
 
 #include <iostream>
 using namespace std;
@@ -17,8 +18,12 @@ color ray_color(const ray& r, const hittable& world, int depth) {
     }
 
     if (world.hit(r, 0.001, infinity, rec)) {
-        auto target = rec.p + random_in_hemisphere(rec.normal);
-        return 0.5 * ray_color(ray(rec.p, target - rec.p), world, depth-1);
+        ray scattered;
+        color attenuation;
+        if (rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
+            return attenuation * ray_color(scattered, world, depth-1);
+        }
+        return color(0,0,0);
     }
 
     vec3 unit_direction = unit_vector(r.direction()); // レイの方向ベクトルを正規化
@@ -47,8 +52,16 @@ int main() {
     auto lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
 
     hittable_list world;
-    world.add(make_shared<sphere>(point3(0,0,-1), 0.5)); // (0,0,-1) を中心とする半径 0.5 の球を追加
-    world.add(make_shared<sphere>(point3(0,-100.5,-1), 100)); // (0,-100.5,-1) を中心とする半径 100 の球を追加 (地面の代わり)
+    // world.add(make_shared<sphere>(point3(0,0,-1), 0.5)); // (0,0,-1) を中心とする半径 0.5 の球を追加
+    // world.add(make_shared<sphere>(point3(0,-100.5,-1), 100)); // (0,-100.5,-1) を中心とする半径 100 の球を追加 (地面の代わり)
+    world.add(make_shared<sphere>(
+    point3(0,0,-1), 0.5, make_shared<lambertian>(color(0.7, 0.3, 0.3))));
+    world.add(make_shared<sphere>(
+    point3(0,-100.5,-1), 100, make_shared<lambertian>(color(0.8, 0.8, 0.0))));
+    world.add(make_shared<sphere>(
+    point3(1,0,-1), 0.5, make_shared<metal>(color(.8,.6,.2))));
+    world.add(make_shared<sphere>(
+    point3(-1,0,-1), 0.5, make_shared<metal>(color(.8,.8,.8))));
 
     camera cam;
 
