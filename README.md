@@ -52,3 +52,6 @@ vec3, ray クラスなどを定義しただけ
 
 完全鏡面反射の金属マテリアル<br>
 <img src="week1/day7_perfect_specular_metal.png" alt="完全鏡面反射の金属マテリアル" width="480">
+
+ぼやけた金属 (left: fuzz=1.0, center: diffuse only, right: fuzz=0.3)<br>
+<img src="week1/day7_add_fuziness.png" alt="ぼやけた反射の金属マテリアル" width="480">
